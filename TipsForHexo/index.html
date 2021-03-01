@@ -23,17 +23,17 @@
   <meta name="description" content="搭建Hexo博客时遇到的问题，记录一下.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建Hexo博客踩过的一些坑">
-<meta property="og:url" content="https://polariszg.xyz/2021/02/07/TipsForHexo/index.html">
+<meta property="og:url" content="https://polariszg.xyz/TipsForHexo/index.html">
 <meta property="og:site_name" content="PolarisZgのBlog">
 <meta property="og:description" content="搭建Hexo博客时遇到的问题，记录一下.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/cover.jpg">
-<meta property="og:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/img0.png">
-<meta property="og:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/img1.jpg">
-<meta property="og:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/img2.png">
-<meta property="og:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/img3.png">
-<meta property="og:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/img4.png">
-<meta property="og:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/img5.png">
+<meta property="og:image" content="https://polariszg.xyz/TipsForHexo/cover.jpg">
+<meta property="og:image" content="https://polariszg.xyz/TipsForHexo/img0.png">
+<meta property="og:image" content="https://polariszg.xyz/TipsForHexo/img1.jpg">
+<meta property="og:image" content="https://polariszg.xyz/TipsForHexo/img2.png">
+<meta property="og:image" content="https://polariszg.xyz/TipsForHexo/img3.png">
+<meta property="og:image" content="https://polariszg.xyz/TipsForHexo/img4.png">
+<meta property="og:image" content="https://polariszg.xyz/TipsForHexo/img5.png">
 <meta property="article:published_time" content="2021-02-07T09:46:38.000Z">
 <meta property="article:modified_time" content="2021-02-08T02:34:54.580Z">
 <meta property="article:author" content="PolarisZg">
@@ -42,9 +42,9 @@
 <meta property="article:tag" content="静态页面">
 <meta property="article:tag" content="坑">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://polariszg.xyz/2021/02/07/TipsForHexo/cover.jpg">
+<meta name="twitter:image" content="https://polariszg.xyz/TipsForHexo/cover.jpg">
 
-<link rel="canonical" href="https://polariszg.xyz/2021/02/07/TipsForHexo/">
+<link rel="canonical" href="https://polariszg.xyz/TipsForHexo/">
 
 
 <script id="page-configurations">
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://polariszg.xyz/2021/02/07/TipsForHexo/">
+    <link itemprop="mainEntityOfPage" href="https://polariszg.xyz/TipsForHexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -264,7 +264,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="/2021/02/07/TipsForHexo/cover.jpg"><br>搭建Hexo博客时遇到的问题，记录一下.<br></p>
+        <p><img src="/TipsForHexo/cover.jpg"><br>搭建Hexo博客时遇到的问题，记录一下.<br></p>
 <a id="more"></a>
 <h1 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h1><h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
 <li><p>问题表现：上传后不在仓库主页面显示<br><br>原因：上传分支错误，之前GitHub新建仓库后主分支为 <code>master</code> 现在主分支为 <code>main</code> . 而<font color="66ffff">站点配置文件</font>的 <code>_config.yml</code> 文件最后几行的代码为</p>
@@ -275,10 +275,10 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repository: https:&#x2F;&#x2F;github.com&#x2F;PolarisZg&#x2F;PolarisZg.github.io</span><br><span class="line">    branch: main</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>更改GitHub仓库的主分支为 <code>master</code> . 更改方法为<br><br><img src="/2021/02/07/TipsForHexo/img0.png" alt="图一"></li>
+<li>更改GitHub仓库的主分支为 <code>master</code> . 更改方法为<br><br><img src="/TipsForHexo/img0.png" alt="图一"></li>
 </ol>
 </li>
-<li><p>问题表现：上传至GitHub仓库，但不显示blog网页<br><br>原因：GitHub Page 调用的分支不同<br><br>解决方案：切换GitHub Page 调用的分支为上传文件的分支<br><br><img src="/2021/02/07/TipsForHexo/img1.jpg" alt="图二"></p>
+<li><p>问题表现：上传至GitHub仓库，但不显示blog网页<br><br>原因：GitHub Page 调用的分支不同<br><br>解决方案：切换GitHub Page 调用的分支为上传文件的分支<br><br><img src="/TipsForHexo/img1.jpg" alt="图二"></p>
 </li>
 </ul>
 <h1 id="DNSPOD"><a href="#DNSPOD" class="headerlink" title="DNSPOD"></a>DNSPOD</h1><h2 id="SiteConnectGitHubPage"><a href="#SiteConnectGitHubPage" class="headerlink" title="SiteConnectGitHubPage"></a>SiteConnectGitHubPage</h2><ul>
@@ -286,15 +286,15 @@
 </li>
 <li><p>问题表现：域名与GitHub Page 绑定<br><br>解决步骤：<br></p>
 <ol>
-<li>向域名解析中添加A记录与CHAME记录<br><br><img src="/2021/02/07/TipsForHexo/img2.png" alt="图三"><br><br>A记录应在以下四个中选择：</li>
+<li>向域名解析中添加A记录与CHAME记录<br><br><img src="/TipsForHexo/img2.png" alt="图三"><br><br>A记录应在以下四个中选择：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">185.199.108.153</span><br><span class="line">185.199.109.153</span><br><span class="line">185.199.110.153</span><br><span class="line">185.199.111.153</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>在GitHub Page 的Settings中添加域名并启动HTTPS<br><br><img src="/2021/02/07/TipsForHexo/img3.png" alt="图四"></li>
-<li>在 <font color="66ffff">站点配置文件</font>中的 source 文件夹里，添加一个命名为 CNAME 的无后缀文件，文件中的填写你的域名。<br><br><img src="/2021/02/07/TipsForHexo/img4.png" alt="图五"><h2 id="CloudFlareCDN"><a href="#CloudFlareCDN" class="headerlink" title="CloudFlareCDN"></a>CloudFlareCDN</h2></li>
+<li>在GitHub Page 的Settings中添加域名并启动HTTPS<br><br><img src="/TipsForHexo/img3.png" alt="图四"></li>
+<li>在 <font color="66ffff">站点配置文件</font>中的 source 文件夹里，添加一个命名为 CNAME 的无后缀文件，文件中的填写你的域名。<br><br><img src="/TipsForHexo/img4.png" alt="图五"><h2 id="CloudFlareCDN"><a href="#CloudFlareCDN" class="headerlink" title="CloudFlareCDN"></a>CloudFlareCDN</h2></li>
 </ol>
 </li>
-<li><p>问题表现：更换DNS解析服务器后，未在CloudFlare服务器中注册<br><br>原因：更换方式不对，不是更改域名注册下的解析服务，而是更改域名注册 &gt; 更多 &gt; DNS解析<br><br><img src="/2021/02/07/TipsForHexo/img5.png" alt="图六"></p>
+<li><p>问题表现：更换DNS解析服务器后，未在CloudFlare服务器中注册<br><br>原因：更换方式不对，不是更改域名注册下的解析服务，而是更改域名注册 &gt; 更多 &gt; DNS解析<br><br><img src="/TipsForHexo/img5.png" alt="图六"></p>
 </li>
 </ul>
 
@@ -339,7 +339,7 @@
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/02/09/colorfulHexo/" rel="next" title="Hexo美化笔记">
+    <a href="/colorfulHexo/" rel="next" title="Hexo美化笔记">
       Hexo美化笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -536,6 +536,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
