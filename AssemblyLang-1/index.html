@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"polariszg.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="汇编语言笔记 —— 1数字的进制转换，源码和补码">
+  <meta name="description" content="数字的进制转换，源码和补码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编语言课程笔记 —— 1">
 <meta property="og:url" content="https://polariszg.xyz/AssemblyLang-1/index.html">
 <meta property="og:site_name" content="PolarisZgのBlog">
-<meta property="og:description" content="汇编语言笔记 —— 1数字的进制转换，源码和补码">
+<meta property="og:description" content="数字的进制转换，源码和补码">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://polariszg.xyz/AssemblyLang-1/%E6%94%B6%E8%97%8F%5B476%5DPid%5B61217529_p0%5D_%E6%A0%87%E9%A2%98%5B%E3%82%B5%E3%82%BF%E3%83%BC%E3%83%8B%E3%83%A3%5D%E7%94%BB%E5%B8%88%5Berit0ri%5Duid%5B9678264%5D_acg17.com.jpg">
 <meta property="og:image" content="https://polariszg.xyz/AssemblyLang-1/Dec2N1.png">
 <meta property="og:image" content="https://polariszg.xyz/AssemblyLang-1/Dec2N2.png">
+<meta property="og:image" content="https://polariszg.xyz/AssemblyLang-1/ASCII_1.png">
+<meta property="og:image" content="https://polariszg.xyz/AssemblyLang-1/32_1.png">
 <meta property="article:published_time" content="2021-03-02T06:42:33.000Z">
-<meta property="article:modified_time" content="2021-03-09T07:12:17.589Z">
+<meta property="article:modified_time" content="2021-03-11T06:40:06.238Z">
 <meta property="article:author" content="PolarisZg">
 <meta property="article:tag" content="汇编语言">
 <meta property="article:tag" content="大学课程">
@@ -214,7 +216,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-09 15:12:17" itemprop="dateModified" datetime="2021-03-09T15:12:17+08:00">2021-03-09</time>
+                <time title="修改时间：2021-03-11 14:40:06" itemprop="dateModified" datetime="2021-03-11T14:40:06+08:00">2021-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,7 +241,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,7 +260,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>汇编语言笔记 —— 1<br><br><img src="/AssemblyLang-1/%E6%94%B6%E8%97%8F%5B476%5DPid%5B61217529_p0%5D_%E6%A0%87%E9%A2%98%5B%E3%82%B5%E3%82%BF%E3%83%BC%E3%83%8B%E3%83%A3%5D%E7%94%BB%E5%B8%88%5Berit0ri%5Duid%5B9678264%5D_acg17.com.jpg"><br>数字的进制转换，源码和补码<br></p>
+        <p><img src="/AssemblyLang-1/%E6%94%B6%E8%97%8F%5B476%5DPid%5B61217529_p0%5D_%E6%A0%87%E9%A2%98%5B%E3%82%B5%E3%82%BF%E3%83%BC%E3%83%8B%E3%83%A3%5D%E7%94%BB%E5%B8%88%5Berit0ri%5Duid%5B9678264%5D_acg17.com.jpg"><br>数字的进制转换，源码和补码<br></p>
 <a id="more"></a>
 
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p> &emsp;&emsp; 汇编语言，一种用于电子计算机、微处理器、微控制器或其他可编程器件的低级语言，亦称为符号语言。在汇编语言中，用助记符代替机器指令的操作码，用地址符号或标号代替指令或操作数的地址。<br><br> &emsp;&emsp; 进制转换，即数字的十进制 <code>Dec</code> , 八进制 <code>Oct</code> , 二进制 <code>Bin</code> , 与十六进制 <code>Hex</code> 之间的转换以及负数的 反码 / 补码 表示。</p>
@@ -274,7 +276,24 @@
 <p>整数除以 N 倒取余数 <br> 小数乘以 N 正取整数</p>
 </blockquote>
 <p><img src="/AssemblyLang-1/Dec2N1.png" alt="整数部分"><br><img src="/AssemblyLang-1/Dec2N2.png" alt="小数部分"></p>
-<h1 id="计算机中数和字符的表示"><a href="#计算机中数和字符的表示" class="headerlink" title="计算机中数和字符的表示"></a>计算机中数和字符的表示</h1><h2 id="计算机中数的表示方法"><a href="#计算机中数的表示方法" class="headerlink" title="计算机中数的表示方法"></a>计算机中数的表示方法</h2><p>&emsp;&emsp;计算机处理的数常常是带符号的数，即有正数和负数的区别。为便于计算机识别与处理，通常用数的最高位来表示数的符号，0 表示正数，1 表示负数。日常用 <code>+</code> 或 <code>-</code> 表示符号的数叫<strong>真值</strong>，而在二进制数额最高位设置符号位，把符号加以数值化，这样的数叫<strong>机器数</strong><br>例如：<br>| 真值 | 机器数 |<br>| —- | —– |<br>|+1101|01101|<br>|-1101|11101|<br>&emsp;&emsp;带符号的机器数可以用原码、反码、补码三种不同的码制来表示，由于补码表示法正在加减运算中的优点，现在多数计算机都是采用补码表示法。  </p>
+<h1 id="计算机中数和字符的表示"><a href="#计算机中数和字符的表示" class="headerlink" title="计算机中数和字符的表示"></a>计算机中数和字符的表示</h1><h2 id="计算机中数的表示方法"><a href="#计算机中数的表示方法" class="headerlink" title="计算机中数的表示方法"></a>计算机中数的表示方法</h2><p>&emsp;&emsp;计算机处理的数常常是带符号的数，即有正数和负数的区别。为便于计算机识别与处理，通常用数的最高位来表示数的符号，0 表示正数，1 表示负数。日常用 <code>+</code> 或 <code>-</code> 表示符号的数叫<strong>真值</strong>，而在二进制数额最高位设置符号位，把符号加以数值化，这样的数叫<strong>机器数</strong><br>例如：  </p>
+<table>
+<thead>
+<tr>
+<th>真值</th>
+<th>机器数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+1101</td>
+<td>01101</td>
+</tr>
+<tr>
+<td>-1101</td>
+<td>11101</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;带符号的机器数可以用原码、反码、补码三种不同的码制来表示，由于补码表示法正在加减运算中的优点，现在多数计算机都是采用补码表示法。  </p>
 <h3 id="原码表示法"><a href="#原码表示法" class="headerlink" title="原码表示法"></a>原码表示法</h3><p>&emsp;&emsp;原码是一种比较直观的机器数表示法。用二进制数的最高位表示符号（0 表示正数，1 表示负数），数的有效值用二进制的绝对值表示（与真值相同）。例如，原码表示的整数 01101010 和 11101010 ，分别对应的真值是 +1101010 和 -1101010 。<br>&emsp;&emsp;在原码表示法中，8位带符号二进制数能表示的最大数和最小数是 01111111 和 11111111，即 -127 &lt; X &lt; +127 . 数 0 有两种形式 ：00000000 和 10000000 ，他们分别对应的真值是 +0 和 -0.  </p>
 <h3 id="补码表示法"><a href="#补码表示法" class="headerlink" title="补码表示法"></a>补码表示法</h3><p>&emsp;&emsp;由于原码加减运算时不太方便，因此设想让符号位也作为数的一部分参与运算，十七运算操作简化，无需做过多的判断和处理。补码表示法就具有这一特点。  </p>
 <h4 id="补码的定义"><a href="#补码的定义" class="headerlink" title="补码的定义"></a>补码的定义</h4><p>&emsp;&emsp;带符号数 x 的补码表示法 [x] 可定义如下</p>
@@ -372,7 +391,77 @@
 </tbody></table>
 <h4 id="由原码变换为补码"><a href="#由原码变换为补码" class="headerlink" title="由原码变换为补码"></a>由原码变换为补码</h4><p>&emsp;&emsp;由于正数的原码和补码的机器数一样，所以这里主要讨论的是讨论负数的变换。把哟个负数的原码变换为补码的额方法是：</p>
 <blockquote>
-<p>首先保持符号位不变（因为符号位u已表示为负数），然后将有效数各位变反，最低位 +1 即可</p>
+<p>首先保持符号位不变（因为符号位u已表示为负数），然后将有效数各位变反，最低位 +1 即可  </p>
+</blockquote>
+<h3 id="二进制编码"><a href="#二进制编码" class="headerlink" title="二进制编码"></a>二进制编码</h3><h4 id="十进制数的二进制编码"><a href="#十进制数的二进制编码" class="headerlink" title="十进制数的二进制编码"></a>十进制数的二进制编码</h4><p>8086 / 8088 指令支持十进制数的运算，那么十进制数在机器内部也必须用二进制来表示，即用十进制的二进制编码表示，常用的是BCD码。BCD码与十进制数的对应关系如表所示</p>
+<table>
+<thead>
+<tr>
+<th>BCD码</th>
+<th>十进制数</th>
+<th>__</th>
+<th>BCD码</th>
+<th>十进制数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0000</td>
+<td>0</td>
+<td></td>
+<td>0101</td>
+<td>5</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>1</td>
+<td></td>
+<td>0110</td>
+<td>6</td>
+</tr>
+<tr>
+<td>0010</td>
+<td>2</td>
+<td></td>
+<td>0111</td>
+<td>7</td>
+</tr>
+<tr>
+<td>0011</td>
+<td>3</td>
+<td></td>
+<td>1000</td>
+<td>8</td>
+</tr>
+<tr>
+<td>0100</td>
+<td>4</td>
+<td></td>
+<td>1001</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<p>例如，十进制数 <code>368</code> 写成BCD码为 <code>0011 0110 1000</code></p>
+<h4 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h4><p>ASCII码。标准的ASCII码在一个字节中用七位二进制表示字符编码，用一位（最高位）表示奇偶校验位<br><img src="/AssemblyLang-1/ASCII_1.png"></p>
+<h3 id="32位单精度浮点数"><a href="#32位单精度浮点数" class="headerlink" title="32位单精度浮点数"></a>32位单精度浮点数</h3><p>规格化的32位单精度浮点数的真值表示为</p>
+<p><img src="/AssemblyLang-1/32_1.png" alt="32位单精度浮点数"></p>
+<p>例：将125.56用单精度表示:</p>
+<blockquote>
+<p>STEP 1</p>
+<blockquote>
+<p>转换为二进制并规格化<br><br>125.56 = 1111101.101 B = 1.111101101 x 2 ^ 6 B<br>  </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>STEP 2</p>
+<blockquote>
+<p>数符 s = 0 <br><br>阶码 e = 6 , E = 127 + e = 133 = 10000101 B<br><br>尾数 M = 111101101 <br></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>STEP 3</p>
+<blockquote>
+<p>写出浮点数表示<br><font color="1E90FF">0</font><font color="FFFF00">1000010 1</font><font color="00FF00">1111011 01000000 00000000</font> </p>
+</blockquote>
 </blockquote>
 
     </div>
@@ -416,7 +505,10 @@
     <a href="/colorfulHexo/" rel="prev" title="Hexo美化笔记">
       <i class="fa fa-chevron-left"></i> Hexo美化笔记
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/Intel8086-8088CPU%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%AF%84%E5%AD%98%E5%99%A8/" rel="next" title="Intel8086/8088CPU结构与可编程寄存器">
+      Intel8086/8088CPU结构与可编程寄存器 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -475,7 +567,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tran"><span class="nav-number">2.</span> <span class="nav-text">Tran</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#N-2-Dec"><span class="nav-number">2.1.</span> <span class="nav-text">N 2 Dec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dec-2-N"><span class="nav-number">2.2.</span> <span class="nav-text">Dec 2 N</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">计算机中数和字符的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">计算机中数的表示方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">3.1.1.</span> <span class="nav-text">原码表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">3.1.2.</span> <span class="nav-text">补码表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">补码的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95%E4%B8%AD%E6%95%B0%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">补码表示法中数的范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B1%E5%8E%9F%E7%A0%81%E5%8F%98%E6%8D%A2%E4%B8%BA%E8%A1%A5%E7%A0%81"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">由原码变换为补码</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tran"><span class="nav-number">2.</span> <span class="nav-text">Tran</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#N-2-Dec"><span class="nav-number">2.1.</span> <span class="nav-text">N 2 Dec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dec-2-N"><span class="nav-number">2.2.</span> <span class="nav-text">Dec 2 N</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">计算机中数和字符的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">计算机中数的表示方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">3.1.1.</span> <span class="nav-text">原码表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">3.1.2.</span> <span class="nav-text">补码表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">补码的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E8%A1%A8%E7%A4%BA%E6%B3%95%E4%B8%AD%E6%95%B0%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">补码表示法中数的范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B1%E5%8E%9F%E7%A0%81%E5%8F%98%E6%8D%A2%E4%B8%BA%E8%A1%A5%E7%A0%81"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">由原码变换为补码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81"><span class="nav-number">3.1.3.</span> <span class="nav-text">二进制编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BC%96%E7%A0%81"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">十进制数的二进制编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">字符编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32%E4%BD%8D%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">3.1.4.</span> <span class="nav-text">32位单精度浮点数</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,7 +583,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -551,7 +643,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">4k</span>
+    <span title="站点总字数">5k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
