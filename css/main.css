@@ -1197,7 +1197,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #506f4f;
+  background: #2d6205;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2317,7 +2317,7 @@ embed {
   white-space: nowrap;
 }
 body {
-  background: url("/images/cover1.jpg");
+  background: url("/images/Kafuu_chino_uniform_wallpaper.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
