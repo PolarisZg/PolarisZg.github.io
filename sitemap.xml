@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://polariszg.xyz/raspberrynas/</loc>
+    
+    <lastmod>2021-03-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://polariszg.xyz/Intel8086-8088CPU%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%AF%84%E5%AD%98%E5%99%A8/</loc>
     
     <lastmod>2021-03-11</lastmod>
@@ -53,7 +60,7 @@
 
   <url>
     <loc>https://polariszg.xyz/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,49 +68,70 @@
   
   <url>
     <loc>https://polariszg.xyz/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://polariszg.xyz/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://polariszg.xyz/tags/Hexo/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://polariszg.xyz/tags/%E7%BD%91%E7%AB%99/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://polariszg.xyz/tags/%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://polariszg.xyz/tags/%E5%9D%91/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://polariszg.xyz/tags/MarkDown/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://polariszg.xyz/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://polariszg.xyz/tags/nas/</loc>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://polariszg.xyz/tags/Linux/</loc>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -112,14 +140,21 @@
   
   <url>
     <loc>https://polariszg.xyz/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://polariszg.xyz/categories/%E8%87%AA%E5%AD%A6%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2021-03-11</lastmod>
+    <lastmod>2021-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://polariszg.xyz/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
+    <lastmod>2021-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
